@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container" style="padding-top: 3rem;">
+        <h2>Weather for the next 7 days</h2>
+        <div class="input-group mb-3">
+            <input id="city" type="text" class="form-control" placeholder="City name">
+            <button onclick="weatherBalloon()" class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+        </div>
+        <p id="toEnter"></p>
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>description</th>
+                    <th>tempreture in C</th>
+                    <th>tempreture in F</th>
+                    <th>Min temp C</th>
+                    <th>Min temp F</th>
+                    <th>Max temp C</th>
+                    <th>Max temp F</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+        </table>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

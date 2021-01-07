@@ -1,5 +1,4 @@
  function weatherBalloon() {
-     document.getElementById('toEnter').innerHTML = "";
      let key = "cad86314552b94deb5b82fa8e5e1e33e";
      let cityName = document.getElementById("city").value
      if (cityName) {
@@ -12,6 +11,7 @@
              .then(response => response.json())
              .then(data => {
                  drawWeather(data);
+                 document.getElementById('toEnter').innerHTML = "";
                  console.log(data)
              }).catch(() => document.getElementById('toEnter').innerHTML = 'please enter the city name correct')
      } else {

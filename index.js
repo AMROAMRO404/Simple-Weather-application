@@ -1,4 +1,5 @@
  function weatherBalloon() {
+     document.getElementById('toEnter').innerHTML = "";
      let key = "cad86314552b94deb5b82fa8e5e1e33e";
      let cityName = document.getElementById("city").value
      if (cityName) {

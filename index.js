@@ -20,6 +20,7 @@
  }
 
  function drawWeather(d) {
+
      document.getElementById('table-body').innerHTML = ""
      for (i = 0; i < d.list.length; i++) {
          let celciusDay = Math.round(parseFloat(d.list[i].temp.day) - 273.15);
@@ -42,3 +43,33 @@
              `;
      }
  }
+
+
+
+ document.getElementById('get-my-location').addEventListener('click', () => {
+     let key = "cad86314552b94deb5b82fa8e5e1e33e";
+     let lat;
+     let lon;
+     navigator.geolocation.getCurrentPosition(function(position) {
+         lat = position.coords.latitude;
+         lon = position.coords.longitude;
+         console.log(position);
+         console.log(lat);
+         console.log(lon);
+         let url;
+         if (location.protocol === 'http:') {
+             url = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&appid=${key}`
+         } else {
+             url = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&appid=${key}`
+         }
+         fetch(url)
+             .then(response => response.json())
+             .then(data => {
+                 drawWeather(data);
+                 document.getElementById('toEnter').innerHTML = "";
+                 console.log(data)
+             }).catch(() => document.getElementById('toEnter').innerHTML = 'please enter the city name correct')
+     });
+
+
+ });

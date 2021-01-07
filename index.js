@@ -2,7 +2,12 @@
      let key = "cad86314552b94deb5b82fa8e5e1e33e";
      let cityName = document.getElementById("city").value
      if (cityName) {
-         fetch(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${cityName}&appid=${key}`)
+         if (location.protocol === 'http:') {
+             url = `http://api.openweathermap.org/data/2.5/forecast/daily?q=${cityName}&appid=${key}`
+         } else {
+             url = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${cityName}&appid=${key}`
+         }
+         fetch(url)
              .then(response => response.json())
              .then(data => {
                  drawWeather(data);

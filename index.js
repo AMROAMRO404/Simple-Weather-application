@@ -39,6 +39,7 @@
                     <td id="min-temp-f">${fahrenheitMin}</td>
                     <td id="max-temp-c">${celciusMax}</td>
                     <td id="max-temp-f">${fahrenheitMax}</td>
+                    <td id="max-temp-f"><img src='http:openweathermap.org/img/wn/${d.list[i].weather[0].icon+".png"}'></td>
                 </tr>
              `;
      }
